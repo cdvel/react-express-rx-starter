@@ -14,7 +14,8 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div> 
-				<h1>Count: {this.state.count}</h1>
+				<hr />
+				<h3>Count: {this.state.count}</h3>
 				<button type="button" onClick={this.incrementCount}>Increment</button>
 			</div>
 		);

@@ -1,5 +1,6 @@
 var React = require('react');
-var Button = require('react-bootstrap/lib/Button')
+var BButton = require('react-bootstrap/lib/Button')
+var Alert = require('react-bootstrap/lib/Alert');
 
 module.exports = React.createClass({
 	incrementCount: function(){
@@ -17,7 +18,10 @@ module.exports = React.createClass({
 			<div> 
 				<hr />
 				<h3>Count: {this.state.count}</h3>
-				<Button bsStyle='primary' onClick={this.incrementCount}>Increment</button>
+				<BButton bsStyle='primary' onClick={this.incrementCount}>Increment</BButton>
+				<Alert bsStyle='warning'>
+    				<strong>Holy guacamole!</strong> Best check yo self, youre not looking too good.
+  				</Alert>
 			</div>
 		);
 	}

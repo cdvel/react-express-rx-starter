@@ -1,4 +1,6 @@
 var gulp = require('gulp');
+var sass = require('gulp-sass');
+
 
 var browserify = require('browserify');
 var reactify = require('reactify');
@@ -12,4 +14,16 @@ gulp.task('js', function(){
         .pipe(gulp.dest('public/javascripts/build/'));
 });
 
-gulp.task('default', ['js']);
+gulp.task('sass', function() {
+    gulp.src('public/stylesheets/scss/*.scss')
+        .pipe(sass())
+        .pipe(gulp.dest('public/stylesheets/css'));
+});
+
+
+gulp.task('watch', function() {
+    gulp.watch("public/javascripts/src/**/*.jsx", ["js"])
+    gulp.watch("public/stylesheets/scss/*.scss", ["sass"]);
+});
+
+gulp.task('default', ['js','sass','watch']);

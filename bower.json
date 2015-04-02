@@ -1,0 +1,23 @@
+{
+  "name": "react-express-rx-starter",
+  "version": "0.1.0",
+  "homepage": "https://github.com/cesarvelandia/react-express-rx-starter",
+  "authors": [
+    "cesarvelandia <cesar@velandia.co>"
+  ],
+  "description": "A template for react and rx projects",
+  "main": ".\\bin\\www",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libraries/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass-official": "~3.3.4"
+  }
+}

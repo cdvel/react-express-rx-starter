@@ -17,11 +17,11 @@ module.exports = React.createClass({
 		return (
 			<div> 
 				<hr />
-				<h3>Count: {this.state.count}</h3>
-				<BButton bsStyle='primary' onClick={this.incrementCount}>Increment</BButton>
-				<Alert bsStyle='warning'>
-    				<strong>Holy guacamole!</strong> Best check yo self, youre not looking too good.
+				<Alert bsStyle='info'>
+    				You've clicked that button <strong>{this.state.count} times!</strong>
   				</Alert>
+  				< br/>
+				<BButton bsStyle='primary' onClick={this.incrementCount}>Click me</BButton>
 			</div>
 		);
 	}

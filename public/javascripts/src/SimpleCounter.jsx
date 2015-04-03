@@ -3,26 +3,40 @@ var BButton = require('react-bootstrap/lib/Button')
 var Alert = require('react-bootstrap/lib/Alert');
 
 module.exports = React.createClass({
-	incrementCount: function(){
+	incrementThenAlert: function(){
 		this.setState({
-			count: this.state.count + 1
+			count: this.state.count + 1,
+			alertVisible: true
 		});
 	},
 	getInitialState: function(){
 		return {
-			count: 0
+			count: 0,
+			alertVisible: false
 		}
 	},
+	handleAlertDismiss: function(){
+		this.setState({alertVisible: false});
+	},
 	render: function() {
+
+		var alertElement;
+
+		if (this.state.alertVisible)
+		{
+			alertElement = (<Alert bsStyle='info' onDismiss={this.handleAlertDismiss} dismissAfter={2000}>
+			    				You have clicked that button <strong>{this.state.count} times!</strong>
+			  				</Alert>);
+		}
 		return (
-			<div> 
-				<hr />
-				<Alert bsStyle='info'>
-    				You've clicked that button <strong>{this.state.count} times!</strong>
-  				</Alert>
-  				< br/>
-				<BButton bsStyle='primary' onClick={this.incrementCount}>Click me</BButton>
+			<div>
+				
+  				<h2>{this.state.alertVisible}</h2>
+				<BButton bsStyle='primary' onClick={this.incrementThenAlert}>Click me</BButton>
+				< hr/>
+				{alertElement}
 			</div>
 		);
+		
 	}
 });

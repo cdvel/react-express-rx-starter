@@ -3,6 +3,8 @@
 // -----------------------------------------------------
 
 @import url("//fonts.googleapis.com/css?family=Lato:400,700,400italic");
+@import "variables.scss";
+
 
 // Navbar =====================================================================
 
@@ -33,11 +35,11 @@
 // Buttons ====================================================================
 
 .btn:active {
-  @include box-shadow(none);
+  // @include box-shadow(none);
 }
 
 .btn-group.open .dropdown-toggle {
-  @include box-shadow(none);
+  // @include box-shadow(none);
 }
 
 // Typography =================================================================
@@ -117,10 +119,10 @@ table,
 .form-control,
 input, {
   border-width: 2px;
-  @include box-shadow(none);
+  // @include box-shadow(none);
 
   &:focus {
-    @include box-shadow(none);
+    // @include box-shadow(none);
   }
 }
 
@@ -239,7 +241,7 @@ input, {
 
 .progress {
   height: 10px;
-  @include box-shadow(none);
+  // @include box-shadow(none);
   .progress-bar {
     font-size: 10px;
     line-height: 10px;
@@ -249,7 +251,7 @@ input, {
 // Containers =================================================================
 
 .well {
-  @include box-shadow(none);
+  // @include box-shadow(none);
 }
 
 a.list-group-item {

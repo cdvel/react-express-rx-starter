@@ -20,10 +20,9 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('public/stylesheets/css'));
 });
 
-
 gulp.task('watch', function() {
     gulp.watch("public/javascripts/src/**/*.jsx", ["js"])
-    gulp.watch("public/stylesheets/scss/*.scss", ["scss"]);
+    gulp.watch("public/stylesheets/scss/*.scss", ["sass"]);
 });
 
 gulp.task('default', ['js','sass','watch']);

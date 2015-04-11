@@ -1,5 +1,5 @@
 var React = require('react');
-var BButton = require('react-bootstrap/lib/Button')
+var Button = require('react-bootstrap/lib/Button')
 var Alert = require('react-bootstrap/lib/Alert');
 
 module.exports = React.createClass({
@@ -30,9 +30,8 @@ module.exports = React.createClass({
 		}
 		return (
 			<div>
-				
   				<h2>{this.state.alertVisible}</h2>
-				<BButton bsStyle='primary' onClick={this.incrementThenAlert}>Click me</BButton>
+				<Button bsStyle='primary' onClick={this.incrementThenAlert}>Click me</Button>
 				< hr/>
 				{alertElement}
 			</div>

@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var less = require('gulp-less');
+var sass = require('gulp-sass');
 
 
 var browserify = require('browserify');
@@ -14,16 +14,16 @@ gulp.task('js', function(){
         .pipe(gulp.dest('public/javascripts/build/'));
 });
 
-gulp.task('less', function() {
-    gulp.src('public/stylesheets/less/*.less')
-        .pipe(less())
+gulp.task('sass', function() {
+    gulp.src('public/stylesheets/scss/*.scss')
+        .pipe(sass())
         .pipe(gulp.dest('public/stylesheets/css'));
 });
 
 
 gulp.task('watch', function() {
     gulp.watch("public/javascripts/src/**/*.jsx", ["js"])
-    gulp.watch("public/stylesheets/less/*.less", ["less"]);
+    gulp.watch("public/stylesheets/scss/*.scss", ["scss"]);
 });
 
-gulp.task('default', ['js','less','watch']);
+gulp.task('default', ['js','sass','watch']);

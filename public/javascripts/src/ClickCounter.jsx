@@ -29,7 +29,7 @@ module.exports = React.createClass({
 			  				</Alert>);
 		}
 		return (
-			<div>
+			<div className="counter-panel">
   				<h2>{this.state.alertVisible}</h2>
 				<Button bsStyle='primary' onClick={this.incrementThenAlert}>Click me</Button>
 				< hr/>

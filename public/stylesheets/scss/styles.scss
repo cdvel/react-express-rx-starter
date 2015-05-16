@@ -10,10 +10,18 @@
 @import "../../libraries/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 @import "../../libraries/bootswatch-scss/readable/_bootswatch.scss";
 
-.counter-panel{
+.component-panel{
 	width: 50%;
 	padding: 20px;
 	border: 15px;
 	background: $gray-light;
 }  
+
+.content{
+	padding: 50px;
+}
+
+body{
+	margin-left: 10%;
+}
 

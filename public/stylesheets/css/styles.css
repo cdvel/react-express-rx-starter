@@ -4948,8 +4948,14 @@ legend {
   border-top-width: 0;
   border-radius: 0 0 4px 4px; }
 
-.counter-panel {
+.component-panel {
   width: 50%;
   padding: 20px;
   border: 15px;
   background: #b4bcc2; }
+
+.content {
+  padding: 50px; }
+
+body {
+  margin-left: 10%; }

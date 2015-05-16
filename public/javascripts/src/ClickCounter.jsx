@@ -29,11 +29,16 @@ module.exports = React.createClass({
 			  				</Alert>);
 		}
 		return (
-			<div className="counter-panel">
-  				<h2>{this.state.alertVisible}</h2>
-				<Button bsStyle='primary' onClick={this.incrementThenAlert}>Click me</Button>
-				< hr/>
-				{alertElement}
+			<div className="component-panel">
+				<div className="row">
+					<div className="col-md-6">
+		  				<h2>{this.state.alertVisible}</h2>
+						<Button bsStyle='primary' onClick={this.incrementThenAlert}>Click me</Button>
+					</div>
+					<div className="col-md-6">
+						{alertElement}
+					</div>
+				</div>
 			</div>
 		);
 		

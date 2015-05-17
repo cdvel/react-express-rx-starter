@@ -42,6 +42,16 @@ module.exports = React.createClass({
 			state = "warning";
 		}
 
+		var blacklist = require("../../../config.json")['blacklist'];
+
+		for (var i = blacklist.length - 1; i >= 0; i--) {
+			if (string(pass.toLowerCase()).contains(blacklist[i]))
+			{
+				mess[4] = "contains blacklisted sequence: "+blacklist[i];
+				break;
+			}
+		};
+
 		if (mess == "")
 		{
 			mess [0] = "Strong!"

@@ -31,11 +31,10 @@ module.exports = React.createClass({
 		return (
 			<div className="component-panel">
 				<div className="row">
-					<div className="col-md-6">
-		  				<h2>{this.state.alertVisible}</h2>
+					<div className="col-md-4">
 						<Button bsStyle='primary' onClick={this.incrementThenAlert}>Click me</Button>
 					</div>
-					<div className="col-md-6">
+					<div className="col-md-8">
 						{alertElement}
 					</div>
 				</div>

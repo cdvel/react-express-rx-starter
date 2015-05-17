@@ -1,7 +1,7 @@
 var React = require('react');
-var ClickCounter = require('./ClickCounter.jsx');
+var AppMain = require('./AppMain.jsx');
 
 React.render(
-	<ClickCounter />,
+	<AppMain />,
 	document.getElementById('mount-point')
 );

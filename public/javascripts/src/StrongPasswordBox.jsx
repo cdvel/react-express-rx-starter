@@ -2,6 +2,8 @@ var React = require('react');
 var Input = require('react-bootstrap/lib/Input');
 var Alert = require('react-bootstrap/lib/Alert');
 var string = require('string');
+var _ = require('underscore');
+
 
 
 module.exports = React.createClass({
@@ -24,7 +26,7 @@ module.exports = React.createClass({
 
 		if (pass.length < mLen)
 		{
-			mess [0] = mLen+" or more characters";
+			mess.push(mLen+" or more characters");
 			state = "warning";
 		}
 
@@ -32,13 +34,13 @@ module.exports = React.createClass({
 			|| string(pass).isNumeric() 
 			|| string(pass).contains(' '))
 		{
-			mess [1] = "Must have numbers and letters";
+			mess.push("Must have numbers and letters");
 			state = "warning";
 		}
 		
 		if (pass.toUpperCase() == pass || pass.toLowerCase() == pass)
 		{
-			mess [2] = "Must have upper and lowercase letters";
+			mess.push("Must have upper and lowercase letters");
 			state = "warning";
 		}
 
@@ -47,14 +49,14 @@ module.exports = React.createClass({
 		for (var i = blacklist.length - 1; i >= 0; i--) {
 			if (string(pass.toLowerCase()).contains(blacklist[i]))
 			{
-				mess[4] = "contains blacklisted sequence: "+blacklist[i];
+				mess.push("contains blacklisted sequence: "+blacklist[i]);
 				break;
 			}
 		};
 
-		if (mess == "")
+		if (mess.length == 0)
 		{
-			mess [0] = "Strong!"
+			mess.push("Good to go!");
 			state = "success"
 		}
 
@@ -72,14 +74,14 @@ module.exports = React.createClass({
 
 	render: function() {
 
-	//TODO: implement map to display in bullets
-	var alertElement = (<Alert bsStyle='info' onDismiss={this.handleClose} dismissAfter={2000}>
-			 <ul> 	
-			 	<li>
-			 		{this.state.message}
-				</li>
-			 </ul>
-			</Alert>);
+	var alertElement;
+
+	var messages = _.map(this.state.message, (function(msg){return (<li>{msg}</li>)}));
+	
+	if (messages .length > 0)
+		alertElement = (<Alert bsStyle='info' onDismiss={this.handleClose} dismissAfter={2000}>
+				 <ul> 	{messages} </ul>
+				</Alert>);
 
 
 	return (
@@ -88,7 +90,7 @@ module.exports = React.createClass({
 					value={this.state.text}
 					placeholder='Type in a strong password'
 					label='Password '
-					help='Validation is based on length and characters'
+					help='Validation is based on length and content'
 					bsStyle={this.state.validation}
 					hasFeedback
 					ref='input'

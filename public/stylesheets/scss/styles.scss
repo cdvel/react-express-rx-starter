@@ -19,3 +19,9 @@
 body{
 	margin-left: 10%;
 }
+
+.always-visible-left{
+	position: fixed;
+	left: 10px;
+	top: 50%;
+}

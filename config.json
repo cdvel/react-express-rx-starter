@@ -1,6 +1,6 @@
 {
 	"blacklist":[
-		"test", "example", "password"
+		"test", "example", "password", "default", "blank"
 		]
 
 }

@@ -10,7 +10,7 @@ module.exports = React.createClass({
 			<div>
 				<ClickCounter />
 				<br />
-				<StrongPasswordBox />
+				<StrongPasswordBox passwordLength={12} />
 			</div>
 		);
 		

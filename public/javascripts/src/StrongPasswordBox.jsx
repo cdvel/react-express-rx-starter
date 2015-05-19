@@ -22,7 +22,7 @@ module.exports = React.createClass({
 		var pass = 	this.refs.input.getValue()
 		var state = "success";
 		var mess = [];
-		var mLen = 6;
+		var mLen = this.props.passwordLength;
 
 		if (pass.length < mLen)
 		{
@@ -34,7 +34,7 @@ module.exports = React.createClass({
 			|| string(pass).isNumeric() 
 			|| string(pass).contains(' '))
 		{
-			mess.push("Must have numbers and letters");
+			mess.push("Use numbers and letters (or special characters). No spaces.");
 			state = "warning";
 		}
 		
@@ -88,9 +88,9 @@ module.exports = React.createClass({
 		<div className='component-panel'>
 			<Input	type='password'
 					value={this.state.text}
-					placeholder='Type in a strong password'
+					placeholder='Type in a password'
 					label='Password '
-					help='Validation is based on length and content'
+					help='Strong passwords use numbers and letters and avoid guessable words'
 					bsStyle={this.state.validation}
 					hasFeedback
 					ref='input'

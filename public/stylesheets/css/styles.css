@@ -4962,4 +4962,7 @@ body {
 .always-visible-left {
   position: fixed;
   left: 10px;
-  top: 50%; }
+  bottom: 10px; }
+
+.bar-item {
+  padding: 1px; }

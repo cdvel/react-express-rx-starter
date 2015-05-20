@@ -29,7 +29,7 @@ gulp.task('sass', function() {
         .pipe(concat('styles.css'))
         .pipe(gulp.dest('public/stylesheets/css'))
         .pipe(rename({suffix: '.min'}))
-        .pipe(minifycss({keepSpecialComments: 0, relativeTo: 'public/stylesheets/css/', processImport: true}))
+        .pipe(minifycss({keepSpecialComments: 0, relativeTo: 'public/stylesheets/scss/', processImport: true}))
         .pipe(gulp.dest('public/stylesheets/css'));
 });
 

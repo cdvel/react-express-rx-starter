@@ -1,4 +1,4 @@
 *node_modules*
 public/javascripts/build/*
 public/libraries/*
-!public/javascripts/build/react*
+public/javascripts/build/react*

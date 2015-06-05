@@ -20,20 +20,21 @@ gulp.task('js', function(){
 
 //var bootstrap = 'public/libraries/bootstrap-sass-official/stylesheets/bootstrap/_bootstrap.scss';
 //var bootswatch = 'public/libraries/bootswatch-scss/flatly/_bootswatch.scss';
-//var vars = "public/stylesheets/scss/_variables.scss";
-var themevars = "public/libraries/bootswatch-scss/readable/_variables.scss";
-var bootstrap =  "public/libraries/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
-var bootswatch =  "public/libraries/bootswatch-scss/readable/_bootswatch.scss";
 
+//var var"../../libraries/bootswatch-scss/readable/_variables.scss";
+var bootstrap =  "../../libraries/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+var bootswatch =  "../../libraries/bootswatch-scss/readable/_bootswatch.scss";
+
+mPaths =  [
+            "public/libraries/bootswatch-scss/readable/",
+            "public/libraries/bootstrap-sass-official/assets/stylesheets/",
+            "public/libraries/bootswatch-scss/readable/"
+            ]
 
 // turn scss files into css
 gulp.task('sass', function() {
-    gulp.src([
-            themevars, 
-            bootstrap, 
-            bootswatch, 
-            'public/stylesheets/scss/styles.scss'])
-        .pipe(sass())
+    gulp.src(['public/stylesheets/scss/*.scss'])
+        .pipe(sass({includePaths: [mPaths]}))
             .pipe(autoprefixer("last 3 version","safari 5", "ie 8", "ie 9"))
         .pipe(concat('styles.css'))
         .pipe(gulp.dest('public/stylesheets/css'))

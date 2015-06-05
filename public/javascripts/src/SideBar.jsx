@@ -2,16 +2,36 @@ var React = require('react');
 var _ = require('underscore');
 var Button = require('react-bootstrap/lib/Button')
 var Alert = require('react-bootstrap/lib/Alert');
+var Modal = require('react-bootstrap/lib/Modal')
+var ModalTrigger = require('react-bootstrap/lib/ModalTrigger')
 var Glyphicon = require('react-bootstrap/lib/Glyphicon');
 
-var items = [
-		<Glyphicon key='up' 	glyph='menu-up' />,
-		<Glyphicon key='plus' 	glyph='plus' />,
-		<Glyphicon key='heart' 	glyph='heart' />,
-		<Glyphicon key='globe' 	glyph='globe' />,
-		<Glyphicon key='text' 	glyph='text-size' />,
-		<Glyphicon key='down' 	glyph='menu-down' />
-	]
+var items = {
+		'up': 	 <Glyphicon key='up' 	glyph='menu-up' />,
+		'plus':  <Glyphicon key='plus' 	glyph='plus' />,
+		'heart': <Glyphicon key='heart' 	glyph='heart' />,
+		'globe': <Glyphicon key='globe' 	glyph='globe' />,
+		'text':  <Glyphicon key='text' 	glyph='text-size' />,
+		'down':  <Glyphicon key='down' 	glyph='menu-down' />
+	};
+
+const MySmallModal = React.createClass({
+  render() {
+	var iconKey = this.props.iconKey;
+    
+
+	  // This probably where you would have an `ajax` call
+    return (
+      <Modal bsSize='small' backdrop={true} animation={true} dismissAfter={2000}
+      container={document.getElementById('mount-point')} onRequestHide={function() {}} >
+        <div className='modal-body h1'>
+          	{items[iconKey]}
+        </div>
+        <Button onClick={this.props.onRequestHide}>Close</Button>
+      </Modal>
+    );
+  }
+});
 
 
 module.exports = React.createClass({
@@ -25,7 +45,8 @@ module.exports = React.createClass({
 							break;
 			case 'down': 	document.getElementById('footer').scrollIntoView(options);
 							break;
-			default: 		console.log(key); 
+			default: 		this.setState({selected: key});
+							//console.log(key); 
 							break;
 		}
 
@@ -35,6 +56,7 @@ module.exports = React.createClass({
 	},
 	getInitialState: function(){
 		return {
+			selected: '',
 			visible: false
 		}
 	},
@@ -44,10 +66,14 @@ module.exports = React.createClass({
 	render: function() {
 		var self = this;
 
+    	// var myselection = this.state.selected;
+
 		var collection = _.map(items, function(it){
 							return(<div className="row bar-item">
 								<div className="col-md-2">
-									<Button bsStyle='default' bsSize="small" data-key={it.key} onClick={self.handleClick}>{it}</Button>
+									<ModalTrigger modal={<MySmallModal iconKey={it.key} />}>
+										<Button bsStyle='default' bsSize="small" data-key={it.key} onClick={self.handleClick}>{it}</Button>
+									</ModalTrigger>
 								</div>
 							</div>)
 						});

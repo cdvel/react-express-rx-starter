@@ -28,7 +28,7 @@ var bootswatch =  "../../libraries/bootswatch-scss/readable/_bootswatch.scss";
 
 // turn scss files into css
 gulp.task('sass', function() {
-    gulp.src([vars1, themevars, bootstrap, bootswatch, 'public/stylesheets/scss/styles.scss'])
+    gulp.src([vars, themevars, bootstrap, bootswatch, 'public/stylesheets/scss/styles.scss'])
         .pipe(sass())
             .pipe(autoprefixer("last 3 version","safari 5", "ie 8", "ie 9"))
         .pipe(concat('styles.css'))
